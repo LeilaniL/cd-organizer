@@ -25,6 +25,19 @@ namespace CDOrganizer.Controllers
             List<Artist> allArtists = Artist.GetAll();
             return View("Index", allArtists);
         }
+        [HttpGet("/artists/search")]
+        public ActionResult Search()
+        {
+            return View();
+        }
+
+        [HttpPost("/searchForm")]
+        public ActionResult Search(string search)
+        {
+            int id = Artist.GetArtist(search);
+            return RedirectToAction("Show", new { id = id });
+        }
+
         [HttpGet("/artists/{id}")]
         public ActionResult Show(int id)
         {
@@ -48,5 +61,8 @@ namespace CDOrganizer.Controllers
             model.Add("artist", foundArtist);
             return View("Show", model);
         }
+
+
+
     }
 }

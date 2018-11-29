@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 
 namespace CDOrganizer.Models
 {
@@ -42,6 +43,18 @@ namespace CDOrganizer.Models
         public void AddAlbum(Album album)
         {
             _albums.Add(album);
+        }
+        public static int GetArtist(string userQuery)
+        {
+            int results = 0;
+            for (int i = 0; i < _instances.Count; i++)
+            {
+                if (userQuery == _instances[i]._name)
+                {
+                    results = _instances[i]._id;
+                }
+            }
+            return results;
         }
     }
 
