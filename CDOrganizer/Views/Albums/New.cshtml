@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Hello friend!</title>
+  </head>
+  <body>
+    <h1>Add a new album to @Model.GetName()</h1>
+
+    <form action='/artists/@Model.GetId()/albums' method='post'>
+      <input id='artistId' name='artistId' type='hidden' value='@Model.GetId()'>
+      <label for='albumDescription'>Album Description</label>
+      <input id='albumDescription' name='albumDescription' type='text'>
+      <button type='submit'>Add album</button>
+    </form>
+
+  </body>
+</html>
